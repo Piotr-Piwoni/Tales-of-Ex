@@ -38,19 +38,19 @@ public class PlayerController : MonoBehaviour
         myAnim.SetBool("isOnGround", isOnGround);
 
         if(Input.GetKeyDown(KeyCode.Space) && isOnGround == true){
-            theRB.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            theRB.linearVelocity = new Vector3(0.0f, 0.0f, 0.0f);
             theRB.AddForce(new Vector3(0.0f, jumpForce, 0.0f));
             myAnim.SetTrigger("jumped");
         }
 
-        theRB.velocity = new Vector3(moveDirection.x, theRB.velocity.y, moveDirection.z);
+        theRB.linearVelocity = new Vector3(moveDirection.x, theRB.linearVelocity.y, moveDirection.z);
 
 
     }
 
     public void Pads(float padForce)
     {
-        theRB.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+        theRB.linearVelocity = new Vector3(0.0f, 0.0f, 0.0f);
         theRB.AddForce(new Vector3(0.0f, padForce, 0.0f));
     }
 
